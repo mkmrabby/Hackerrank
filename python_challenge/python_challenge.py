@@ -349,3 +349,207 @@ if __name__ == '__main__':
         arr.remove(max(arr)) # remove max number
     print (max(arr))
 
+
+# # Nested Lists
+# 
+# 
+# Given the names and grades for each student in a Physics class of N students, store them in a nested list and print the name(s) of any student(s) having the second lowest grade.
+# 
+# Note: If there are multiple students with the same grade, order their names alphabetically and print each name on a new line.
+# 
+# 
+# Input Format
+# 
+# The first line contains an integer, N, the number of students.
+# The 2N subsequent lines describe each student over 2 lines; the first line contains a student's name, and the second line contains their grade.
+# 
+# Constraints
+# 
+# 2<=N<=5
+# There will always be one or more students having the second lowest grade.
+# 
+# Output Format
+# 
+# Print the name(s) of any student(s) having the second lowest grade in Physics; if there are multiple students, order their names alphabetically and print each one on a new line.
+
+# In[ ]:
+
+
+## Python 2
+
+if __name__ == '__main__':
+    name_list=[]
+    new_name_list=[]
+    score_list=[]
+    new_score_list=[]
+    second_low_name_list=[]
+    
+    for _ in range(int(raw_input())):
+        name = raw_input()
+        score = float(raw_input())
+        # List the input
+        name_list.append(name)
+        score_list.append(score)
+    # Sort Upward according to the score
+    index=sorted(range(len(name_list)), key=lambda k: score_list[k])
+    
+    # print new score and name list
+    for i in range(len(index)):
+        new_name_list.append(name_list[index[i]])
+        new_score_list.append(score_list[index[i]])
+
+    # Assign the Second most
+    for i in range(len(index)-1):
+        if new_score_list[i+1]>new_score_list[i]:
+            second_low_score=new_score_list[i+1]
+            break
+    
+    # Find the second low score name
+    for i in range(len(index)):
+        if new_score_list[i]==second_low_score:
+            second_low_name_list.append(new_name_list[i])
+
+    second_low_name_list=sorted(second_low_name_list)
+
+    for i in range(len(second_low_name_list)):
+        print(second_low_name_list[i])
+
+
+# In[ ]:
+
+
+## Python 3
+
+if __name__ == '__main__':
+    name_list=[]
+    new_name_list=[]
+    score_list=[]
+    new_score_list=[]
+    second_low_name_list=[]
+    
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        # List the input
+        name_list.append(name)
+        score_list.append(score)
+    # Sort Upward according to the score
+    index=sorted(range(len(name_list)), key=lambda k: score_list[k])
+    
+    # print new score and name list
+    for i in range(len(index)):
+        new_name_list.append(name_list[index[i]])
+        new_score_list.append(score_list[index[i]])
+
+    # Assign the Second most
+    for i in range(len(index)-1):
+        if new_score_list[i+1]>new_score_list[i]:
+            second_low_score=new_score_list[i+1]
+            break
+    
+    # Find the second low score name
+    for i in range(len(index)):
+        if new_score_list[i]==second_low_score:
+            second_low_name_list.append(new_name_list[i])
+
+    second_low_name_list=sorted(second_low_name_list)
+
+    for i in range(len(second_low_name_list)):
+        print(second_low_name_list[i])
+
+
+# # Finding the percentage
+# 
+# You have a record of N students. Each record contains the student's name, and their percent marks in Maths, Physics and Chemistry. The marks can be floating values. The user enters some integer N followed by the names and marks for N students. You are required to save the record in a dictionary data type. The user then enters a student's name. Output the average percentage marks obtained by that student, correct to two decimal places.
+
+# In[ ]:
+
+
+## Python 2
+
+if __name__ == '__main__':
+    n = int(raw_input())
+    student_marks = {}
+    for _ in range(n):
+        line = raw_input().split()
+        name, scores = line[0], line[1:]
+        scores = map(float, scores)
+        student_marks[name] = scores
+    query_name = raw_input()
+
+
+    print("{0:0.2f}".format(sum(student_marks[query_name])/len(student_marks[query_name])))
+
+
+# In[ ]:
+
+
+## Python 3
+
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+
+    print("{0:0.2f}".format(sum(student_marks[query_name])/len(student_marks[query_name])))
+
+
+# # Validating UID
+# 
+# ABCXYZ company has up to 100 employees.
+# The company decides to create a unique identification number (UID) for each of its employees.
+# The company has assigned you the task of validating all the randomly generated UIDs.
+# 
+# A valid UID must follow the rules below:
+# 
+# - It must contain at least 2 uppercase English alphabet characters.
+# - It must contain at least 3 digits (0 - 9).
+# - It should only contain alphanumeric characters (a - z, A - Z & 0 - 9).
+# - No character should repeat.
+# - There must be exactly 10 characters in a valid UID.
+
+# In[ ]:
+
+
+## Python 2
+
+import re
+
+for _ in range(int(raw_input())):
+    u=''.join(sorted(raw_input()))
+    try:
+        assert re.search(r'[A-Z]{2}',u)
+        assert re.search(r'\d\d\d',u)
+        assert not re.search(r'[^a-zA-Z0-9]',u)
+        assert not re.search(r'(.)\1',u)
+        assert len(u)==10
+    except:
+        print('Invalid')
+    else:
+        print('Valid')
+
+
+# In[ ]:
+
+
+## Python 3
+
+import re
+
+for _ in range(int(input())):
+    u=''.join(sorted(input()))
+    try:
+        assert re.search(r'[A-Z]{2}',u)
+        assert re.search(r'\d\d\d',u)
+        assert not re.search(r'[^a-zA-Z0-9]',u)
+        assert not re.search(r'(.)\1',u)
+        assert len(u)==10
+    except:
+        print('Invalid')
+    else:
+        print('Valid')
+
