@@ -41,11 +41,49 @@ Sample Output
  Yes 8
  */
 
+#include <cmath>
+#include <cstdio>
+#include <vector>
 #include <iostream>
+#include <algorithm>
+using namespace std;
+
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int len;
+    cin>>len;
+
+    int* arr=new int[len];
+
+    for(int i=0; i<len; i++){
+        cin>>arr[i];
+    }
+
+    int n, i_n;
+
+    cin>>n;
+
+    for(int i=0; i<n; i++){
+        cin>>i_n;
+
+        int min=arr[0]-i_n;
+        int pos=0;
+
+        for(int j=0; j<len; j++){
+            if(min>arr[j]-i_n || min<0){
+                min=arr[j]-i_n;
+                pos=j;
+            }
+        }
+
+        if(min==0)
+            cout<<"Yes "<<pos+1<<endl;
+        else
+            cout<<"No "<<pos+1<<endl;
+    }
     return 0;
 }
+
 
 
