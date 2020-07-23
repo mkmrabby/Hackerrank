@@ -48,9 +48,9 @@ Sample Output
 #include <algorithm>
 using namespace std;
 
-
+/*
 int main() {
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    // Enter your code here. Read input from STDIN. Print output to STDOUT
     int len;
     cin>>len;
 
@@ -84,6 +84,5 @@ int main() {
     }
     return 0;
 }
-
-
+*/
 
