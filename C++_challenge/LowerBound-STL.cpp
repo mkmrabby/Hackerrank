@@ -86,3 +86,29 @@ int main() {
 }
 */
 
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int size, x, q;
+    cin>>size;
+    vector<int> v;
+
+    for(int i=0; i<size; i++){
+        cin>>x;
+        v.push_back(x);
+    }
+
+    cin>>q;
+
+    while(q--){
+        int val;
+        cin>>val;
+        vector<int>::iterator low=lower_bound(v.begin(), v.end(), val);
+
+        if(v[low-v.begin()]==val)
+            cout<<"Yes "<<(low-v.begin())+1<<endl;
+        else
+            cout<<"No "<<(low-v.begin())+1<<endl;
+    }
+
+    return 0;
+}
