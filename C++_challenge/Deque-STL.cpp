@@ -65,29 +65,32 @@ using namespace std;
 
 void printKMax(int arr[], int n, int k){
     //Write your code here.
-    deque<int>De;
+    deque<int>dq;
 
-    for(int i=0; i<k; i++){
-        De.push_back(arr[i]);
-    }
-
-    int max;
-    int i=0;
-
-    do{
-        max=De[0];
-
-        for(int j=0; j<k; j++){
-            if(De[j]>=max)
-                max=De[j];
+    for(int i=0; i<n; i++){
+        // base case for the first element
+        if(dq.empty()){
+            dq.push_back(i);
         }
-        printf("%d ",max);
-        De.pop_front();
-        De.push_back(arr[k+i]);
-        i++;
-    }while(i<(n-k+1));
 
-    printf("\n");
+        // remove element from the current window
+        if(dq.front()<=(i-k)){
+            dq.pop_front();
+        }
+
+        // move max element from the front
+        while (!dq.empty() && arr[i]>=arr[dq.back()]) {
+            dq.pop_back();
+        }
+
+        dq.push_back(i);
+
+        // print when the first element is completed
+        if(i>=(k-1)){
+            cout<<arr[dq.front()]<<" ";
+        }
+    }
+    cout<<endl;
 }
 
 int main(){
