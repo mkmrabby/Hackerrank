@@ -1,0 +1,7 @@
+read i
+if [ $i == 'y' -o $i == 'Y' ]
+then 
+    echo "YES"
+else
+    echo "NO"
+fi
