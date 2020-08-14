@@ -1,0 +1,5 @@
+IFS=""
+while read line
+do
+    echo -e $line | cut -f1-3
+done
