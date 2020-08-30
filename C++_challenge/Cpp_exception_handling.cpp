@@ -71,10 +71,11 @@ void process_input(int n) {
         cout << "result=" << d << endl;
     }
 
-    catch(invalid_argument){
-        cout<<"largets proper divisor is not defined for n="<<n<<endl;
+    catch(exception& error){
+        cout<<error.what()<<endl;
     }
-    cout<<"returning control flow to caller";
+
+    cout<<"returning control flow to caller\n";
 }
 
 
