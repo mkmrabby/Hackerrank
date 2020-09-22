@@ -9,3 +9,4 @@ elif (( $i != $j )) && (( $i != $k )) && (( $k != $j )); then
 else
     echo 'ISOSCELES'
 fi
+
