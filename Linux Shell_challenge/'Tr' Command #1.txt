@@ -3,3 +3,5 @@ do
     echo $x | tr "()" "[]"
 done
 echo $x | tr "()" "[]"
+
+
