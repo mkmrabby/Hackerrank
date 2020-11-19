@@ -1,0 +1,5 @@
+cat $1 | sort
+
+OR
+
+sort
