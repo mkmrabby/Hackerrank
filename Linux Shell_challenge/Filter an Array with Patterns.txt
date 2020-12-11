@@ -1,0 +1,2 @@
+Array=($(cat))
+echo  ${Array[@]/*[aA]*/}
