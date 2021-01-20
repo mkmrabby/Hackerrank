@@ -3,5 +3,3 @@ echo "Welcome $name"
 
 
 
-
-
