@@ -2,3 +2,5 @@ read num
 echo $num | bc -l | xargs printf "%0.3f"
 
 
+
+
