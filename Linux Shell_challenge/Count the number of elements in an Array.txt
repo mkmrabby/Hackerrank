@@ -1,5 +1,2 @@
 arr=($(cat))
 echo ${#arr[@]}
-
-
-
