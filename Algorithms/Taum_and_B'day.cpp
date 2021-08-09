@@ -23,7 +23,7 @@ vector<string> split(const string &);
  */
 
 long taumBday(int b, int w, int bc, int wc, int z) {
-    return (b*min(bc, wc+z))+(w*min(wc, bc+z));
+    return ((long)b*min(bc, wc+z))+((long)w*min(wc, bc+z));
 }
 
 int main()
